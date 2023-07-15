@@ -3,19 +3,19 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 
 const deps = require("./package.json").dependencies;
 module.exports = {
-  mode: 'development',
-  output: {
-    publicPath: "http://localhost:3000/",
-  },
+  mode: 'production',
+  // output: {
+  //   publicPath: "http://localhost:3000/",
+  // },
 
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
 
-  devServer: {
-    port: 3000,
-    historyApiFallback: true,
-  },
+  // devServer: {
+  //   port: 3000,
+  //   historyApiFallback: true,
+  // },
 
   module: {
     rules: [
@@ -45,7 +45,7 @@ module.exports = {
       name: "home",
       filename: "remoteEntry.js",
       remotes: {
-        home: "home@http://localhost:3000/remoteEntry.js",
+        home: "home@https://main--verdant-dolphin-9ee1fc.netlify.app/remoteEntry.js",
         pdp: "pdp@http://localhost:3001/remoteEntry.js",
         cart: "cart@http://localhost:3002/remoteEntry.js",
       },
